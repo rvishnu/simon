@@ -1,0 +1,70 @@
+<div class="container">
+
+    <div class="jumbotron">
+      <h1>Simon</h1>
+
+      <h2>Project</h2>
+      <small>By Vishnu</small>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <button type="button" ng-class="ctrl.button[0].clicked? ctrl.button[0].clickedColor: ctrl.button[0].color"
+                ng-click="ctrl.userPlaySimon(ctrl.button[0])" ng-disabled="ctrl.computerTurn || !ctrl.started">
+          <span ng-bind="ctrl.button[0].name"></span>
+        </button>
+
+      </div>
+      <div class="col-sm-2">
+        <button type="button" ng-class="ctrl.button[2].clicked? ctrl.button[2].clickedColor: ctrl.button[2].color"
+                ng-click="ctrl.userPlaySimon(ctrl.button[2])" ng-disabled="ctrl.computerTurn || !ctrl.started">
+          <span ng-bind="ctrl.button[2].name"></span>
+
+        </button>
+
+      </div>
+      <div class="col-sm-2">
+        <div class="col-md-3 col-md-offset-4">
+          <button type="button" class="btn btn-primary" ng-click="ctrl.startPlay()" ng-show="!ctrl.started">Start
+          </button>
+          <button type="button" class="btn btn-primary" ng-click="ctrl.stopPlay()" ng-show="ctrl.started">Stop
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <span ng-show="ctrl.computerTurn && ctrl.started">Computer Turn, Better Watch</span>
+        <span ng-show="!ctrl.computerTurn && ctrl.started">Your Turn</span>
+        <span ng-show="ctrl.userEntryWrong">Ohh!!! You haven't entered right, Better Watch Out</span>
+      </div>
+      <div class="col-sm-2">
+        <Label>Points: </Label>
+        <span ng-bind="ctrl.points"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <button type="button" ng-class="ctrl.button[1].clicked? ctrl.button[1].clickedColor: ctrl.button[1].color"
+                ng-click="ctrl.userPlaySimon(ctrl.button[1])" ng-disabled="ctrl.computerTurn || !ctrl.started">
+          <span ng-bind="ctrl.button[1].name"></span>
+        </button>
+      </div>
+      <div class="col-sm-2">
+        <button type="button" ng-class="ctrl.button[3].clicked? ctrl.button[3].clickedColor: ctrl.button[3].color"
+                ng-click="ctrl.userPlaySimon(ctrl.button[3])" ng-disabled="ctrl.computerTurn || !ctrl.started">
+          <span ng-bind="ctrl.button[3].name"></span>
+        </button>
+      </div>
+      <div class="col-sm-2">
+        <label ng-show="ctrl.userClickedArray.length!=0">You Clicked </label>
+        <label ng-show="ctrl.computerTurn && ctrl.started">Computer Clicks </label>
+      </div>
+      <div class="col-sm-4">
+        <div ng-repeat="value in ctrl.computerClicks track by $index" ng-show="ctrl.computerTurn && ctrl.started">
+          <span ng-bind="value.color"></span>
+        </div>
+        <div ng-repeat="value in ctrl.userClickedArray track by $index">
+          <span ng-bind="value.color"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
